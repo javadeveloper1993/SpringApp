@@ -55,7 +55,6 @@ public class Person implements BeanNameAware {
 				+ toString());
 	}
 
-	@Override
 	public void setBeanName(String name) {
 		System.out.println("\nsetBeanName >>>>> " + name);
 	}
