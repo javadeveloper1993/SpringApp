@@ -17,6 +17,7 @@ public class ApplicationContextDemo {
 	public static void main(String[] args) {
 		AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"ApplicationContext.xml");
+		
 //		System.out.println("\ncontainsBean : "
 //				+ applicationContext.containsBean("firstBeanPerson"));
 //		System.out.println("ApplicationName : "

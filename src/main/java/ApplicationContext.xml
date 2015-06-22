@@ -10,10 +10,21 @@
 	<!-- First Spring Program -->
 	<!-- scope="prototype" -->
 	<bean id="firstBeanPerson" class="com.example.spring.model.Person"
-	 init-method="open" destroy-method="destroye" scope="prototype">
+		init-method="open" destroy-method="destroye">
 		<property name="name" value="Maulik"></property>
 		<property name="age" value="23"></property>
 		<property name="address" value="Ranip"></property>
 	</bean>
+
+	<!-- Bean Post Processor Demo -->
+	<bean class="com.example.spring.BeanPostProcessorDemo"></bean>
+
+	<!-- Bean Inheritanse Demo -->
+	<bean id="customerTemplate" class="com.example.spring.model.Customer">
+		<property name="country" value="U.S"></property>
+	</bean>
+
+
+
 
 </beans>

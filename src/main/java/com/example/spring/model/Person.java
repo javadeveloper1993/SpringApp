@@ -1,13 +1,16 @@
 package com.example.spring.model;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.BeanNameAware;
 
 /**
  * @author Maulik
  * 
  */
-public class Person implements BeanNameAware {
+public class Person implements BeanNameAware, BeanFactoryAware {
 
 	Logger logger = Logger.getLogger(Person.class);
 
@@ -57,6 +60,11 @@ public class Person implements BeanNameAware {
 
 	public void setBeanName(String name) {
 		System.out.println("\nsetBeanName >>>>> " + name);
+	}
+
+	@Override
+	public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+		System.out.println("BeanFactory >>>>> " + beanFactory);
 	}
 
 }
