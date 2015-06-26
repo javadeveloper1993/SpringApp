@@ -17,14 +17,45 @@
 	</bean>
 
 	<!-- Bean Post Processor Demo -->
-	<bean class="com.example.spring.BeanPostProcessorDemo"></bean>
+<!-- 	<bean class="com.example.spring.BeanPostProcessorDemo"></bean> -->
 
 	<!-- Bean Inheritanse Demo -->
-	<bean id="customerTemplate" class="com.example.spring.model.Customer">
+	<bean id="customerTemplate" class="com.example.spring.model.Customer"
+		abstract="true">
+		<property name="type" value="salesMan"></property>
+	</bean>
+
+	<bean id="customerInheritanceTemplate" class="com.example.spring.model.Customer_Inheritancea"
+		parent="customerTemplate">
+		<property name="action" value="Test"></property>
 		<property name="country" value="U.S"></property>
 	</bean>
 
+	<!-- Inner Bean -->
+	<bean id="innerBean" class="com.example.spring.model.InnerBean">
+		<constructor-arg>
+			<bean class="com.example.spring.model.Person">
+				<property name="name" value="Maulik"></property>
+				<property name="age" value="23"></property>
+				<property name="address" value="Ranip"></property>
+			</bean>
+		</constructor-arg>
 
+		<constructor-arg>
+			<bean class="com.example.spring.model.Customer_Inheritancea">
+				<property name="type" value="Bean"></property>
+				<property name="action" value="Inject"></property>
+				<property name="country" value="India"></property>
+			</bean>
+		</constructor-arg>
+		<property name="customer">
+			<bean class="com.example.spring.model.Customer">
+				<property name="type" value="Bean1"></property>
+				<property name="action" value="Inject1"></property>
+				<property name="country" value="India1"></property>
+			</bean>
+		</property>
+	</bean>
 
 
 </beans>
